@@ -1,4 +1,4 @@
-name: Run Prod Scripts
+name: Test Dev Scripts
 
 on:
   pull_request:
@@ -7,11 +7,11 @@ on:
       - "master"
       - "main"
     paths:
-      - iac/prod/infra/**
+      - iac/dev/scripts/**
 
 env:
   
-  TF_VAR_aws_role: ${{ secrets.PROD_ASSUME_ROLE }}
+  TF_VAR_aws_role: ${{ secrets.DEV_ASSUME_ROLE }}
 
 permissions: write-all
 
@@ -30,7 +30,7 @@ jobs:
         with:
           files_separator: ","
           files: |
-            iac/prod/scripts/**
+            iac/dev/scripts/**
 
     outputs:
       matrix: ${{ steps.modified-files.outputs.all_changed_files }}
@@ -52,12 +52,12 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
-          role-to-assume: ${{ secrets.PROD_ASSUME_ROLE }}
+          role-to-assume: ${{ secrets.DEV_ASSUME_ROLE }}
           role-session-name: gh-actions-exe-role
           aws-region: us-east-1
 
       - name: Shell Linter
         uses: azohra/shell-linter@v0.6.0
         with:
-          path: "iac/prod/scripts/*.sh"
+          path: "iac/dev/scripts/*.sh"
 
