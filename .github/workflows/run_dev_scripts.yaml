@@ -1,8 +1,7 @@
 name: Run Dev Scripts
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
+  push:
     branches:
       - "master"
       - "main"
