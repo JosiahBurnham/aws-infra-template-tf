@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-aws iam list-roles
+aws iam list-role
