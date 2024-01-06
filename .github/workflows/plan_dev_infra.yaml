@@ -7,7 +7,7 @@ on:
       - "master"
       - "main"
     paths:
-      - iac/dev/**
+      - iac/dev/infra/**
 
 env:
   TF_VAR_gh_token: ${{ secrets.GH_PAT_TOKEN }}
@@ -30,7 +30,7 @@ jobs:
         with:
           files_separator: ","
           files: |
-            iac/dev/**
+            iac/dev/infra/**
 
     outputs:
       matrix: ${{ steps.modified-files.outputs.all_changed_files }}

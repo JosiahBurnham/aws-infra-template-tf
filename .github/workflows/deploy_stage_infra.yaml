@@ -6,7 +6,7 @@ on:
       - "master"
       - "main"
     paths:
-      - iac/stage/**
+      - iac/stage/infra/**
 
 env:
   TF_VAR_aws_role: ${{ secrets.STAGE_ASSUME_ROLE }}
@@ -28,7 +28,7 @@ jobs:
         with:
           files_separator: ","
           files: |
-            iac/stage/**
+            iac/stage/infra/**
 
     outputs:
       matrix: ${{ steps.modified-files.outputs.all_changed_files }}

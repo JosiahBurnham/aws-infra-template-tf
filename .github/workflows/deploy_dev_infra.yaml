@@ -6,7 +6,7 @@ on:
       - "master"
       - "main"
     paths:
-      - iac/dev/**
+      - iac/dev/infra/**
 
 env:
   TF_VAR_aws_role: ${{ secrets.DEV_ASSUME_ROLE }}
@@ -28,7 +28,7 @@ jobs:
         with:
           files_separator: ","
           files: |
-            iac/dev/**
+            iac/dev/infra/**
 
     outputs:
       matrix: ${{ steps.modified-files.outputs.all_changed_files }}
