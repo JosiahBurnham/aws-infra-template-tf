@@ -35,7 +35,7 @@ jobs:
     outputs:
       matrix: ${{ steps.modified-files.outputs.all_changed_files }}
 
-  InitProject:
+  PlanInfra:
     name: Plan Infrastructure
     runs-on: ubuntu-latest
     needs: GetModifiedFiles
@@ -59,7 +59,7 @@ jobs:
       - name: terraform setup
         uses: hashicorp/setup-terraform@v3
 
-      - name: test create repo
+      - name: terraform plan
         id: plan
         run: |   
           mkdir -p /tmp/tfplan       
