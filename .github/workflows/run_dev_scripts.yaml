@@ -59,7 +59,7 @@ jobs:
       - name: Shell Linter
         uses: azohra/shell-linter@v0.6.0
         with:
-          path: "/iac/dev/scripts/*.sh"
+          path: "iac/dev/scripts/*.sh"
 
       - name: run script
         run: |   
@@ -68,7 +68,7 @@ jobs:
             filename=`basename $file`
             if [[ "$file" != 'none' ]]
             then
-              ./$file
+              bash ./$file
               
             fi
           done
