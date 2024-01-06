@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-aws iam list-role
+echo "dev script"
+aws iam list-roles
